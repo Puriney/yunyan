@@ -14,6 +14,7 @@
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/font-awesome-4.2.0/css/font-awesome.css" rel="stylesheet">
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
@@ -42,7 +43,7 @@
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<!-- side-bar -->
-			<div class="col-md-3 column">
+			<div class="col-md-3 column text-center">
 				<section>
 					<img alt="140x140" src="img/logo.png" height="140" width="140" class="img-thumbnail" />
 				</section>
@@ -57,10 +58,10 @@
 							<a href="toolkits.html">Toolkits</a>
 						</li>
 						<li>
-							<a href="publication.html">Publication</a>
+							<a href="publication.html">Research</a>
 						</li>
 						<li>
-							<a href="talks.html">Talks</a>
+							<a href="playground.html">Playground</a>
 						</li>
 						<li>
 							<a href="blog.html">Blog</a>
@@ -74,17 +75,94 @@
 			<div class="col-md-9 column">
 
 				<h1>Yun YAN</h1>
-				<p>You shall know the truth and the truth shall make you free.</p>
-				<br>
+				<p><em>Progress in science depends on new techniques, new discoveries, and new ideas, probably in that order.</em><small><a href="http://genomebiology.com/2002/3/9/comment/1013">[1]</a></small></p>
+				<hr>
 
-				<div class="row clearfix">
-					
-				</div>
+				<section>
+					<h3>Identifying binding peaks of RBP from CLIP-seq data</h3>
+					<p class="text-center">
+					<a href="http://puriney.github.io/CLIPseqToolkit/" target="_blank">
+					<img src="http://i.imgur.com/TbUYpLO.png" height="350" />
+					</a>
+					</p>
+					<p><em>Introduction</em>: CLIP-seq can globally report all the binding positions of RNA binding proteins, like PTB, FOX, etc. The key is to identify the sites where proteins and RNA are bound with high affinity and strength, a.k.a peak finding. Lots of Chip-seq tools had been utilized to find peak of CLIP-seq as both Chip-seq and CLIP-seq scan protein-nucleic interaction sites <a href="http://www.ncbi.nlm.nih.gov/pubmed/21994224">[1]</a>. Here represents the bio-informatics Perl script to do the job. It absorbs and incorporates methods at Ago CLIP-seq (by Darnell) <a href="http://www.ncbi.nlm.nih.gov/pubmed/19536157">[2]</a> and modified FDR methods at PTB CLIP-seq (by Xue) <a href="http://www.ncbi.nlm.nih.gov/pubmed/20064465">[3]</a>.
 
+					<p>
+					<table class="table">
+					  <tr>
+					    <td><p class="pull-left"><em>Language</em>: Perl, R.</p></td>
+					    <td>
+					    <p class="pull-right">
+					    <a class="btn btn-sm btn-success" href="http://puriney.github.io/CLIPseqToolkit/" role="button"><i class="fa fa-github-alt"></i>&nbsp;&nbsp;GitHub Repo</a>
+					    </p>
+					    </td>
+					  </tr>
+					</table>			
+					</p>
+				</section>
+
+				<hr>
+
+				<section>
+					<h3>Cassette Exon Finder</h3>
+
+					<p class="text-center">
+					<a href="http://puriney.github.io/Textbook-Alternative-Exon/">
+						<img src="img/differential splicing exon.jpg" height="350"/>
+					</a>
+					<p>
+						<p><em>Introduction</em>: Alternative splicing makes main contributions to mammalian trancriptome dynamics, and further proteomic complexity. Cassette exon is the largest category (over 60%) of alternative exon. Cassette exon is related to disease, like SMA (Spinal Muscular Atrophy), a neorodegenerative disorder, which is directly caused by SMN1 deficiency. The inclusion of exon-7 among SMN gene leads to SMN1 transcripts in normal people, while the unexpected exclusion (or skipping) leads to SMN2 which finally results in infantile death. Here represents the scripts to extract exon trios from gene annotation available at UCSC Genome Browser.</p>
+
+						<p>It fetches exon trios to feed downstream scripts <small>(not-included)</small> for exon inclusion ratio quantification and furthermore detecting differential spliced exons.</p>
+					</p>
+
+					<p>
+					<table class="table">
+					  <tr>
+					    <td><p class="pull-left"><em>Language</em>: Perl, Bash</p></td>
+					    <td>
+					    <p class="pull-right">
+					    <a class="btn btn-sm btn-success" href="http://puriney.github.io/Textbook-Alternative-Exon/" role="button"><i class="fa fa-github-alt"></i>&nbsp;&nbsp;GitHub Repo</a>
+					    </p>
+					    </td>
+					  </tr>
+					</table>			
+					</p>
+				</section>
+				<hr>
+				<section>
+					<h3>Plugin for <code>Pysam</code> to decode MD tag</h3>
+
+					<pre><code>&gt;&gt;&gt; ## Demo
+&gt;&gt;&gt; demoMD = "31^AT3T14"
+&gt;&gt;&gt; ## Demo read.cigar()
+&gt;&gt;&gt; cigarList = [(0, 31), (2,2), (3, 94), (0, 18)]
+&gt;&gt;&gt; ## cigar list with match/mismatch information: "
+&gt;&gt;&gt; moreCigarList = moreCigar(cigarList, demoMD)
+&gt;&gt;&gt; print moreCigarList
+[(7, 31), (2, 2), (3, 94), (7, 3), (8, 1), (7, 14)]
+					</code></pre>
+
+					<p><em>Introduction</em>: It would enable <code>read.cigar</code> in pysam to absorb <code>MD</code> tag information. The syntax of pysam could be found <a href="http://www.cgat.org/%7Eandreas/documentation/pysam/api.html?highlight=cigar#pysam.AlignedRead.cigar">here</a> within which <code>0</code> denotes <strong>alignment matched</strong> position. However, though <code>7</code> and <code>8</code> are claimed to denote equal and mismatch respectively, the <strong>sequence</strong> mismatched and matched base in <code>bam</code> file with <code>MD</code> tag attached and even with identical base changed to <code>=</code> cannot be distinguished and are still mixed to be marked by <code>0</code>. </p>
+
+					<p>
+					<table class="table">
+					  <tr>
+					    <td><p class="pull-left"><em>Language</em>: Python</p></td>
+					    <td>
+					    <p class="pull-right">
+					    <a class="btn btn-sm btn-success" href="https://github.com/Puriney/PysamKissesMDtag" role="button"><i class="fa fa-github-alt"></i>&nbsp;&nbsp;GitHub Repo</a>
+					    </p>
+					    </td>
+					  </tr>
+					</table>			
+					</p>
+				</section>
+				
 			</div>
 		</div>
 	</div>
-
 </div>
+<br>
 </body>
 </html>
