@@ -1,7 +1,11 @@
-/*.nav-sidebar {*/
-  /*position: fixed;*/
-    /*custom deal with the navbar*/
-  /*top:80px;*/
-/*}*/
-/*custom fixed top navbar*/
-/*body { padding-top: 100px; }
+.img-responsive {
+ max-height: 350;
+}
+
+/*http://css-tricks.com/left-align-and-right-align-text-on-the-same-line/*/
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}

@@ -28,9 +28,9 @@
   <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="img/favicon.png">
   
-	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<!-- // <script type="text/javascript" src="js/jquery.min.js"></script> -->
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
+	<!-- // <script type="text/javascript" src="js/scripts.js"></script> -->
 
 	<style>
 
@@ -75,32 +75,105 @@
 			<div class="col-md-9 column">
 
 				<h1>Yun YAN</h1>
-				<p><em>We grow old because we stop playing.</em></p>
+				<p><em>We grow old when we stop playing.</em></p>
 				<hr>
 
 				<section>
-					<h2>Books</h2>
+					<h2>Book<i class="fa fa-paragraph"></i></h2>
+					<hr>
 					<h3><em>A little book about CLIP-seq</em></h3>	
-					<p>This booklet covers the brief history related to biochemistry; what data and information you could get out of CLIP-seq; how to analyze those data. In particular how computer science contribute to robust data analysis, including hidden Markov model, random forest, SVM, etc.</p>
+					<p>This booklet covers the brief history related to biochemistry; what data and information you could get out of CLIP-seq; how to analyze those data. In particular how computer science and mathematics contribute to robust data analysis, including hidden Markov model, random forest, SVM, etc.</p>
 
 					<p>Hopefully this book would build a bridge between biologists and geeky computational scientists, at least in RNA-protein interaction research fields. After reading this book, bio-readers would have clearer concept about how the raw data produced by your efforts would be literally cooked as findings with scientific meanings. On the other hand computational scientists would not only learn to appreciate the underlying biological mysteries but also make the link between figuring out computational algorithms and solving biological problems more tight.</p>		
-
-					<p align="right">
-					<a class="btn btn-sm btn-success" href="http://a-little-book-about-clip-seq.readthedocs.org/en/latest/c20mdlPrdict.html#"><i class="fa fa-link"></i>&nbsp;&nbsp;Sample Chapter</a>
-					&nbsp;
-					<a class="btn btn-sm btn-success" href="https://github.com/Puriney/ManualCLIP" role="button"><i class="fa fa-github-alt"></i>&nbsp;&nbsp;Book Source</a>
+					<p>
+					<p class="alignleft">
+					<button type="button" class="btn btn-warning btn-sm" disabled="disabled"><i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;In Progress</button>
 					</p>
+					<p class="alignright">
+					<a class="btn btn-sm btn-success" href="http://a-little-book-about-clip-seq.readthedocs.org/en/latest/c20mdlPrdict.html#"><i class="fa fa-link"></i>&nbsp;&nbsp;eBook</a>
+					&nbsp;
+					<a class="btn btn-sm btn-success" href="https://github.com/Puriney/ManualCLIP" role="button"><i class="fa fa-github-alt"></i>&nbsp;&nbsp;Source</a>
+					</p>
+					</p>
+					<div style="clear: both;"></div>
+
 				</section>
 
+				<hr><hr>
+				<section>
+					<h2>Toolkits under development <i class="fa fa-paragraph"></i><h2>
+					<hr>
+					<h3><code>Minery</code>, a web server for Chemical In Vitro In Vivo Profilling</h3>
+					<div class="row">
+						<div class="col-md-4 column">
+							<a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0099863" target="_blank"><img class="img-responsive img-thumbnail" src="img/ciip.png"></a>
+						</div>
+
+						<div class="col-md-8 column">
+							<p>CIIP (Chemical In Vitro In Vivo Profilling) is a toolkit with ultimate goal to model the similarities among the bio-activity of small molecules and high-throughput screening data. It is promising for researches in chemeoinformatics and drug discovery.</p>
+							<p>Fed with compounds of interest, <code>Minery</code> is dedicated to fetch bioassay data from available database, for example, PubChem.</p>
+							<p><code>Minery</code> is implemented in <code>R</code> and deployed at <a href="https://www.shinyapps.io/">Shinyapps</a> thanks to Rstudio.</p>
+						</div>
+					</div>
+					<p>
+						<p class="alignleft">
+							<button type="button" class="btn btn-warning btn-sm" disabled="disabled"><i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;In Progress</button>
+						</p>
+						<p class="alignright">
+							<a class="btn btn-sm btn-success" href="http://a-little-book-about-clip-seq.readthedocs.org/en/latest/c20mdlPrdict.html#"><i class="fa fa-cloud"></i>&nbsp;&nbsp;Server</a>
+						</p>
+					</p>
+					<div style="clear: both;"></div>
+				</section>
 				<hr>
 				<section>
-					<h2>Toolkits under development<h2>
+					<h3><code>aRtist</code>, package dedicated to data visualization in bioinformatics.
+					<!-- sample pictures -->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="..." alt="...">
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    <div class="item">
+      <img src="..." alt="...">
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    ...
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>					
+					<!-- sample pictures end -->
+
+
 
 				</section>
-
 			</div>
 		</div>
 	</div>
 </div>
+<br>
+<br>
 </body>
 </html>
