@@ -9,3 +9,11 @@
 .alignright {
 	float: right;
 }
+
+
+/*http://stackoverflow.com/questions/13391566/twitter-bootstrap-carousel-different-height-images-cause-bouncing-arrows*/
+.MyCarouselImg img {
+  width: auto;
+  height: 300px;
+  max-height: 300px;
+}
